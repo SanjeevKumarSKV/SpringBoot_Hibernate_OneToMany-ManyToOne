@@ -15,7 +15,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     @Query(
             value =
                     "select s.* "
-                            + "from product s inner join details a "
+                            + "from student s inner join details a "
                             + "on s.id = a.students_id "
                             + "where s.Name > :Name",
             nativeQuery = true)
