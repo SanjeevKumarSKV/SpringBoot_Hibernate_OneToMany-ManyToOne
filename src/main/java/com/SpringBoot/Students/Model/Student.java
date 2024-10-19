@@ -26,7 +26,7 @@ public class Student {
     private String Name;
 
     @JsonIgnore
-    @OneToMany(mappedBy="student", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="student", fetch = FetchType.EAGER)
     private List<Subject> subject;
 
 

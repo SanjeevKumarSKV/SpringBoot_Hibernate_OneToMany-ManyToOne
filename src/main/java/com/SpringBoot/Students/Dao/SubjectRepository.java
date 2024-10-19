@@ -12,4 +12,6 @@ import java.util.List;
 public interface SubjectRepository extends JpaRepository<Subject, Long> {
 
      List<Subject> findAllBySubject(String name);
+
+
 }

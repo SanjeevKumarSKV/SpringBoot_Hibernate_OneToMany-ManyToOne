@@ -2,6 +2,7 @@ package com.SpringBoot.Students.Service;
 
 import com.SpringBoot.Students.Dao.StudentRepository;
 import com.SpringBoot.Students.Model.Student;
+import com.SpringBoot.Students.Model.StudentDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,13 @@ public class StudentService {
     StudentRepository studentRepository;
 
     public List<Student> getAllStudent(){
-        return studentRepository.findAll();
+        List<Student> students = studentRepository.findAll();
+        return students;
+    }
+
+    public List<StudentDTO> getAllStudentWithSubject(){
+        List<StudentDTO> students = studentRepository.findStudentWithSubject();
+        return students;
     }
 
     public Student getStudent(Long id){
@@ -30,8 +37,8 @@ public class StudentService {
         return maybeStudents.orElse(null);
     }
 
-    public List<Student> findStudentWithSubject(String Name){
-        return  studentRepository.findStudentWithSubject(Name);
+    public List<Student> findStudentWithSubject(String name){
+        return  studentRepository.findStudentWithSubject(name);
     }
 
     public Student createStudent(Student student){
